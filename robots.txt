@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /panier/
+Disallow: /recherche/
+Disallow: /factures-pdf/
+Allow: /blog/
+Sitemap: https://www.monsite.sn/sitemap.xml

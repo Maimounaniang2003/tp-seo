@@ -1,0 +1,15 @@
+RewriteEngine On
+
+# 1. Forcer HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# 2. Forcer le www (une fois en https)
+RewriteCond %{HTTP_HOST} ^monsite\.sn [NC]
+RewriteRule ^(.*)$ https://www.monsite.sn/$1 [L,R=301]
+
+# 3. Redirection d'une ancienne page produit supprimée vers son remplacement
+Redirect 301 /produits/ancien-modele.html /produits/nouveau-modele
+
+# 4. Page 404 personnalisée
+ErrorDocument 404 /404.html
